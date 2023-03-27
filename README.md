@@ -1,12 +1,12 @@
 # Overview
-* The goal of this application is to application is to:
-    * Calculate metrics:
-    * Baseline: The median of sales when there is no promotion
-    * Incremental sales lift (lift unit):  weekly sales - baseline
-    * Promotion lift percentage: weekly sales / baseline 
-    * Total sales: the sum of weekly sales for every (product, promotion)
-    * Store the data inside a Cassandra database.
-    * Fetch the data from the table using an Akka-http API and return the total sales and the promotion per product per promotion on the URL: (http://localhost:8080/api/data/prod_purch/promotio_category/promotion_discount)
+ The goal of this application is to application is to:
+ - Calculate metrics:
+ - Baseline: The median of sales when there is no promotion
+ - Incremental sales lift (lift unit):  weekly sales - baseline
+ - Promotion lift percentage: weekly sales / baseline 
+ - Total sales: the sum of weekly sales for every (product, promotion)
+ - Store the data inside a Cassandra database.
+ - Fetch the data from the table using an Akka-http API and return the total sales and the promotion per product per promotion on the URL: (http://localhost:8080/api/data/prod_purch/promotio_category/promotion_discount)
 
 
 # Technologies
