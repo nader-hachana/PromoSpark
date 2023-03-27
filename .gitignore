@@ -1,0 +1,12 @@
+test.scala
+
+kind/challenge.py
+
+processing/data/
+processing/target/
+processing/project/project/
+processing/project/target/
+
+akka_http/target/
+akka_http/project/project/
+akka_http/project/target/

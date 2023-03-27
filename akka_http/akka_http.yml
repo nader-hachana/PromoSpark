@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  akka:
+    image: akka:1.0
+    container_name: akka
+    build:
+      context: ./
+      dockerfile: Dockerfile 
+    ports:
+      - "8080:8080"
+    network_mode: host
