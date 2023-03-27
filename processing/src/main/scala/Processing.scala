@@ -69,6 +69,24 @@ object Processing
         val final_df = lift.join(total_sales, Seq("sku","promo_cat","promo_disc"), "left_outer")
         final_df.printSchema()
         //final_df.show()
+        
+        println("*** WRITING TO CASSANDRA TO TABLE db_sales IN KEYSPACE sales ***")
+        final_df.write
+                .format("org.apache.spark.sql.cassandra")
+                .options(Map(
+                    "keyspace" -> "sales",
+                    "table" -> "db_sales"))
+                .mode("append")
+                .save()
+
+        println("*** READING FROM CASSANDRA FROM TABLE db_sales IN KEYSPACE sales ***")
+        val loaded_data = spark.read
+                         .format("org.apache.spark.sql.cassandra")
+                         .options(Map(
+                             "keyspace" -> "sales",
+                             "table" -> "db_sales"))
+                         .load()
+        loaded_data.show()
 
         println("*** STOPPING SPARK SESSION ***")
         spark.stop()
